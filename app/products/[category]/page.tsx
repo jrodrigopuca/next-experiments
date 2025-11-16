@@ -4,7 +4,7 @@ import fetchProducts from "@/lib/fetch-products";
 
 
 // Componente de página (Server Component por defecto)
-export default async function ProductPage({ params }: { params: { category: string } }) {
+export default async function ProductPage({ params }: { params: Promise<{ category: string }> }) {
   const { category } = await params;
   const products = await fetchProducts(category);
 
